@@ -14,8 +14,9 @@ const HeroBanner = ({ HeroBanner }) => {
     desc,
     image,
     product,
-    } = HeroBanner;
+  } = HeroBanner;
 
+  
 
   return (
     <div className="hero-banner-container">
@@ -29,12 +30,12 @@ const HeroBanner = ({ HeroBanner }) => {
           className="hero-banner-image"
         />
         <div>
-          <Link href={`/products/${product}`}>
+          <Link href={`/product/${product}`}>
             <button type="button">{buttonText}</button>
           </Link>
           <div className="desc">
-                      <h5>{ largeText2}</h5>
-                      <p>{ desc}</p>
+            <h5>{largeText2}</h5>
+            <p>{desc}</p>
           </div>
         </div>
       </div>

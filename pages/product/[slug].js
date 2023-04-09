@@ -15,7 +15,12 @@ const ProductDetails = ({ product, similarProducts }) => {
   const { image, name, details, price } = product;
 
   const [index, setIndex] = useState(0);
-  const {incQty, decQty, qty, onAdd } = useStateContext();
+  const { incQty, decQty, qty, onAdd, setShowCard } = useStateContext();
+
+  const handleBuyNow = async () => {
+    onAdd(product, qty);
+    setShowCard(true);
+  };
 
   return (
     <div>
@@ -33,6 +38,7 @@ const ProductDetails = ({ product, similarProducts }) => {
           <div className="small-images-container">
             {image?.map((item, i) => (
               <img
+                key={i}
                 className={
                   i === index ? "small-image selected-image" : "small-image"
                 }
@@ -66,19 +72,21 @@ const ProductDetails = ({ product, similarProducts }) => {
               <span className="minus" onClick={decQty}>
                 <AiOutlineMinus />
               </span>
-              <span className="num">
-                {qty}
-              </span>
+              <span className="num">{qty}</span>
               <span className="plus" onClick={incQty}>
                 <AiOutlinePlus />
               </span>
             </p>
           </div>
           <div className="buttons">
-            <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>
+            <button
+              type="button"
+              className="add-to-cart"
+              onClick={() => onAdd(product, qty)}
+            >
               Add to Cart
             </button>
-            <button type="button" className="buy-now" onClick="">
+            <button onClick={handleBuyNow} type="button" className="buy-now">
               Buy Now
             </button>
           </div>
@@ -127,8 +135,6 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   const product = await client.fetch(individualProductQuery);
   const similarProducts = await client.fetch(similarProductQuery);
-
-  console.log(slug);
 
   return {
     props: { product, similarProducts },

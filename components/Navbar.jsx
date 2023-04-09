@@ -12,13 +12,13 @@ const Navbar = () => {
   return (
     <div className="navbar-container">
       <p className="logo">
-        <Link href="/">NEXT Headphones</Link>
+        <Link href="/">NEXT Store</Link>
       </p>
 
       <button
         type="button"
         className="cart-icon"
-        onClick={() => setShowCard(!showCard)}
+        onClick={() => setShowCard(true)}
       >
         <AiOutlineShopping />
         <span className="cart-item-qty">{totalQuantities}</span>

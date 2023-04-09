@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
   return (
     <div className="layout">
       <Head>
-        <title>Web Function Store</title>
+        <title>Next Store</title>
       </Head>
       <header>
         <Navbar />
