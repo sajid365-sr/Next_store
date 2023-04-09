@@ -53,14 +53,19 @@ width: 100%;
   white-space: nowrap;
   will-change: transform;
   animation: marquee 15s linear infinite;
-  width: 180%;
+  width: 200%;
 }
 .track:hover {
   animation-play-state: paused;
 }
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from { 
+    transform: translateX(0);  
+  }
+  to { 
+    transform: translateX(-70%);
+    
+  }
 }
 
  span.text-red {
