@@ -9,7 +9,8 @@ const Layout = ({ children }) => {
   return (
     <div className="layout">
       <Head>
-        <title>Next Store</title>
+        <title>Driplare</title>
+        <link rel="icon" href="logo.png" />
       </Head>
       <header>
         <Navbar />
